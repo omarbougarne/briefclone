@@ -1,32 +1,4 @@
-/* 
-Theme Name: Roofers
-Theme URL: 
-Author: TemplatesJungle
-Author URL: https://templatesjungle.com/
-Description: Roofers  is a Free Bootstrap Website Template for Roofing by TemplatesJungle.
-Version: 1.0 
-*/
 
-
-/*--------------------------------------------------------------
-This is main CSS file that contains custom style rules used in this template
---------------------------------------------------------------*/
-
-/*------------------------------------*\
-    Table of contents
-\*------------------------------------*/
-
-/*
-
-CSS STRUCTURE:
-
-1. VARIABLES
-2. GENERAL TYPOGRAPHY
-
---------------------------------------------------------------*/
-
-/*  General Styles
-/*----------------------------------------------*/
 *,
 *::before,
 *::after {
@@ -427,4 +399,12 @@ iconify-icon.quote {
 }
 .rate {
   color: var(--accent-color);
+}
+#article{
+  margin-left: 500px;
+  position: relative;
+}
+#aside{
+  position: absolute;
+  bottom: 200px;
 }

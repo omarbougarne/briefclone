@@ -7,6 +7,7 @@ require_once './controller/controllerarticle.php';
     $controllercategory = new ControllerCategory();
     $controllertag = new ControllerTag();
     $controllerarticle = new ControllerArticle();
+    $controlleruser = new ControllerUser();
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     switch ($action) {
@@ -70,7 +71,9 @@ if (isset($_GET['action'])) {
         case 'deletearticle':
            $controllerarticle->deleteArticleAction();
             break;
-    
+            case 'deletearticle':
+                $controlleruser->loginAction();
+                 break;
     }
 }else{
     
