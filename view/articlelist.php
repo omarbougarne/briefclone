@@ -21,7 +21,7 @@ ob_start();
         <td><?= $article->getArticleId() ?></td>
         <td><?= $article->getArticleName() ?></td>
         <td><?= $article->getCreationDateArticle() ?></td>
-        <td><?= $article->getImage() ?></td>
+        <td><<img src="data:image/jpg;base64,<?= base64_encode($article->getImage()); ?>"></td>
         <td><?= $article->getArticleMain() ?></td>
         <td><?= $article->getArchived() ?></td>
         <td>

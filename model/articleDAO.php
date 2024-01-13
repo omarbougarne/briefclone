@@ -11,19 +11,19 @@ class ArticleDAO
 
     public function getArticles()
     {
-        $query = "SELECT * FROM article";
+        $query = "SELECT article_id, article_name, creation_date, image, SUBSTRING(article_main, 1, 50) AS shortened_article, archived, fk_cat, fk_email FROM article";
         $stmt = $this->db->query($query);
         $stmt->execute();
         $ArticlesData = $stmt->fetchAll();
         $articles = array();
 
         foreach ($ArticlesData as $ArticleData) {
-            $articles[] = new Category(
+            $articles[] = new Article(
                 $ArticleData["article_id"],
                 $ArticleData["article_name"],
                 $ArticleData["creation_date"],
                 $ArticleData["image"],
-                $ArticleData["article_main"],
+                $ArticleData["shortened_article"],
                 $ArticleData["archived"],
                 $ArticleData["fk_cat"],
                 $ArticleData["fk_email"]

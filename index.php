@@ -2,6 +2,8 @@
 // require_once './controller/controlleruser.php';
 require_once './controller/controllercategory.php';
 require_once './controller/controllertag.php';
+require_once './controller/controllercategory.php';
+require_once './controller/controllerarticle.php';
     $controllercategory = new ControllerCategory();
     $controllertag = new ControllerTag();
     $controllerarticle = new ControllerArticle();
@@ -50,23 +52,23 @@ if (isset($_GET['action'])) {
             break;
             //articlecrud
             case 'createarticle':
-           $controllertag-> createTagAction();
+           $controllerarticle-> createArticleAction();
             break;
         case 'destroyarticle':
            
-           $controllertag->destroyTagAction();
+           $controllerarticle->destroyCategoryAction();
             break;
         case 'editarticle':
-            $controllertag->editTagAction();
+            $controllerarticle->editArticleAction();
             break;
         case 'storearticle':
-            $controllertag-> storeTagAction();
+            $controllerarticle-> storeArticleAction();
             break;
         case 'updatearticle':
-            $controllertag->updateTagAction();
+            $controllerarticle->updateArticleAction();
             break;
         case 'deletearticle':
-           $controllertag->deleteTagAction();
+           $controllerarticle->deleteArticleAction();
             break;
     
     }
