@@ -24,10 +24,6 @@ ob_start();
         <td><img src="data:image/jpg;base64,<?= base64_encode($article->getImage()); ?>"></td>
         <td><?= $article->getArticleMain() ?></td>
         <td><?= $article->getArchived() ?></td>
-        <td>
-            <a href="index.php?action=editarticle&article_id=<?= $article->getArticleId() ?>">Edit</a>
-            <a href="index.php?action=deletearticle&article_id=<?= $article->getArticleId() ?>">Delete</a>
-        </td>
     </tr>
 <?php endforeach; ?>
 </tbody>

@@ -10,11 +10,11 @@ class ControllerArticle{
 
 function indexArticleAction(){
    $articles=$this->articleDAO->getArticles();
-    require_once 'view/articlelist.php';
+    require_once 'view/article.php';
 }
 //Add Later to redirect to create page!!!!!!!
 function createArticleAction(){
-    require_once 'view/create_article.php';
+    require_once 'view/createarticle.php';
 }
 
 function storeArticleAction(){
@@ -26,15 +26,10 @@ function storeArticleAction(){
     $_POST["archived"],
     $_POST["fk_cat"],
     $_POST["fk_email"]);
-
-
-   
-
-
     $this->articleDAO->addArticle($newArticle);
 
 
-    header('location:index.php?action=list_article');
+    header('location:index.php');
     exit();
 }
 
@@ -70,5 +65,11 @@ function destroyCategoryAction(){
     header('location:index.php?action=list_article');
     exit();
 }
+function functioSearch(){
+    $name = $_GET['article_name']; 
+    $this->articleDAO->getAjax($name);
+    exit();
+}
+
 }
 ?>
