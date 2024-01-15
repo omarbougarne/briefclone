@@ -82,10 +82,10 @@ class ArticleDAO
         $stmt->bindParam(':creation_date', $article->getCreationDateArticle());
         $stmt->bindParam(':cat_id', $article->getImage());
         $stmt->bindParam(':cat_name', $article->getArticleMain());
-        $stmt->bindParam(':creation_date', $article->getArchived());
-        $stmt->bindParam(':creation_date', $article->getFKCategory());
-        $stmt->bindParam(':creation_date', $article->getFKEmail());
-        $stmt->bindParam(':cat_id', $article->getArticleId());
+        $stmt->bindParam(':archived', $article->getArchived());
+        $stmt->bindParam(':fk_cat', $article->getFKCategory());
+        $stmt->bindParam(':fk_email', $article->getFKEmail());
+        $stmt->bindParam(':article_id', $article->getArticleId());
         $stmt->execute();
     }
 

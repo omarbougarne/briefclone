@@ -65,6 +65,15 @@ class TagDAO
         $stmt->bindParam(':tag_name', $tag_name);
         $stmt->execute();
     }
+    public function gettags_ALL_by_wikiID($id){
+        $query = "SELECT * FROM article_tag WHERE article_id = :article_id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindparam(':article_id', $id, PDO::PARAM_INT);
+        $stmt -> execute();
+        $tags = $stmt->fetchAll();
+
+        return $tags;
+    }
 }
 
 ?>
