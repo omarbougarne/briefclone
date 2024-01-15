@@ -62,29 +62,43 @@ function indexAction(){
 //     exit();
 // }
 
-function loginAction() {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $email = $_POST['email'];
-        $passwd = $_POST['passwrd'];
+// function loginAction() {
+//     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//         $email = $_POST['email'];
+//         $passwd = $_POST['passwrd'];
 
-        $usersDAO = new UsersDAO();
-        $user = $usersDAO->getUserByEmail($email);
+//         $usersDAO = new UsersDAO();
+//         $user = $usersDAO->getUserByEmail($email);
 
-        if ($user && password_verify($passwd, $user->getpassword())) {
-            $_SESSION['user'] = $user;
-            header('location: index.php');
-            exit();
-        } else {
-            $error = "Invalid email or password";
-            require_once 'view/login.php';
-        }
-    } else {
-        require_once 'view/login.php';
-    }
-}
+//         if ($user && password_verify($passwd, $user->getpassword())) {
+//             $_SESSION['user'] = $user;
+//             header('location: index.php');
+//             exit();
+//         } else {
+//             $error = "Invalid email or password";
+//             require_once 'view/login.php';
+//         }
+//     } else {
+//         require_once 'view/login.php';
+//     }
+// }
 // public function setpassword($passwrd) {
 //     $usersDAO = new UsersDAO();
 //     $passwrd = password_hash($passwrd, PASSWORD_DEFAULT);
 // }
+//good to filter for any user
+public static function LoginFilter(){
+    extract($_POST);
+    $userDAO = new UsersDAO();
+
+    $userDAO->getCheckifuserExist($email,$passwrd);
+    header('location:index.php?action=article');
+
+    }
+    // public static function AdminFilter($params) {
+    // if ($_SESSION['role'] !== '1') {
+    //     header('location:index.php');
+    // }
+    // }
 }
 ?>

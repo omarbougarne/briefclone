@@ -10,6 +10,7 @@ require_once './controller/controlleruser.php';
     $controllerarticle = new ControllerArticle();
     $controlleruser = new ControllerUser();
     // $controlleruser = new ControllerUser();
+    session_start();
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     switch ($action) {
@@ -75,16 +76,23 @@ if (isset($_GET['action'])) {
             case 'ajax':
                 $controllerarticle->functioSearch();
             break;
+            // case 'login':
+            //     $controlleruser->loginAction();
+            // break;
             case 'login':
-                $controlleruser->loginAction();
-            break;
+                $controlleruser->LoginFilter();
+                 break;
+            case 'article':
+                $controllerarticle->indexArticleAction();
+                break;
+         
     }
 }else{
     
     // $controllercategory->indexCategoryAction();
     // $controllertag->indexTagAction();
-    // $controllerarticle->indexArticleAction();
-    $controlleruser->indexAction();
+    $controllerarticle->indexArticleAction();
+    // $controlleruser->indexAction();
             
            
 }

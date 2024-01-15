@@ -9,6 +9,8 @@ class Article
     private $archived;
     private $fk_cat;
     private $fk_email;
+    private $tag_name;
+    
 
     public function __construct($article_id,$article_name,
     $creation_date,
@@ -66,5 +68,15 @@ class Article
     public function getFKEmail()
     {
         return $this->fk_email;
+    }
+    public function getTag_name()
+    {
+        return $this->tag_name;
+    }
+    public function setTag_name($tag_name)
+    {
+        $this->tag_name = $tag_name;
+
+        return $this;
     }
 }

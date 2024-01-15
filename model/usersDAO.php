@@ -40,6 +40,26 @@ class UsersDAO{
             return null;
         }
     }
+    public function getCheckifuserExist($email,$passwrd)
+    {
+        $query = "SELECT * FROM users WHERE email = :email AND passwrd = :passwrd";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':passwrd', $passwrd);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            if($result['role'] === '1') {
+                $_SESSION['role'] = 'admin';
+            }else{
+                $_SESSION['role'] = 'user';
+            }
+            return new User($result['email'], $result['passwrd'], $result['name'], $result['role']);
+        } else {
+            return null;
+        }
+    }
 
     public function addUser($user){
         $query = "INSERT INTO users (email, passwrd, name, role) VALUES (:email, :passwrd, :name, :role)";

@@ -11,7 +11,10 @@ class ArticleDAO
 
     public function getArticles()
     {
-        $query = "SELECT article_id, article_name, creation_date, image, SUBSTRING(article_main, 1, 50) AS shortened_article, archived, fk_cat, fk_email FROM article";
+        $query = "SELECT article.*,tag.tag_name 
+        FROM article
+        INNER JOIN article_tag ON article.article_id = article_tag.article_id
+        INNER JOIN tag ON article_tag.tag_name = tag.tag_name";
         $stmt = $this->db->query($query);
         $stmt->execute();
         $ArticlesData = $stmt->fetchAll();
@@ -23,13 +26,20 @@ class ArticleDAO
                 $ArticleData["article_name"],
                 $ArticleData["creation_date"],
                 $ArticleData["image"],
-                $ArticleData["shortened_article"],
+                $ArticleData["article_main"],
                 $ArticleData["archived"],
                 $ArticleData["fk_cat"],
                 $ArticleData["fk_email"]
                 
             );
+        
         }
+        $i = 0;
+        foreach ($articles as $article) {
+            $article->setTag_name($ArticlesData[$i]["tag_name"]);
+            $i++;
+        }
+
 
         return $articles;
     }

@@ -12,10 +12,11 @@ function indexCategoryAction(){
     $categoryDAO = new CategoryDAO();
     $categories = $categoryDAO->getCategories();
     require_once 'view/categorylist.php';
+    
 }
 
 function createCategoryAction(){
-    require_once 'view/createcategory.php';
+    require_once 'view/createcategor.php';
 }
 
 function storeCategoryAction(){

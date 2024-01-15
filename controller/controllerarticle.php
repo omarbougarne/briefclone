@@ -2,19 +2,30 @@
 require_once 'model/articleDAO.php';
 class ControllerArticle{
     private $articleDAO;
-
+    private $catDAO;
+    private $tagDAO;
     public function __construct()
     {
         $this->articleDAO = new ArticleDAO();
+        $this->catDAO = new CategoryDAO();
+        $this->tagDAO = new TagDAO();
     }
+   
 
 function indexArticleAction(){
-//    $articles=$this->articleDAO->getLatestArticle($article_id);
-//    $article_id = $_GET['article_id'];
+ 
+   $categoryDAO = new CategoryDAO();
+    $categories = $categoryDAO->getCategories();
+    $tagDAO = new TagDAO();
+    $tags = $tagDAO->getTags();
+    $articles=$this->articleDAO->getArticles();
+
     require_once 'view/article.php';
 }
 //Add Later to redirect to create page!!!!!!!
 function createArticleAction(){
+    $articles=$this->articleDAO->getArticles();
+
     require_once 'view/createarticle.php';
 }
 
