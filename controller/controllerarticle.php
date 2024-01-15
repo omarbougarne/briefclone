@@ -9,7 +9,8 @@ class ControllerArticle{
     }
 
 function indexArticleAction(){
-   $articles=$this->articleDAO->getArticles();
+//    $articles=$this->articleDAO->getLatestArticle($article_id);
+//    $article_id = $_GET['article_id'];
     require_once 'view/article.php';
 }
 //Add Later to redirect to create page!!!!!!!

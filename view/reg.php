@@ -11,7 +11,7 @@
             integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
@@ -19,9 +19,8 @@
             rel="stylesheet">
         <script src="js/modernizr.js"></script>
     </head>
-</head>
 <body>
-    <section id="hero" class="position-relative overflow-hidden py-4" style="background: url(images/banner-img.png);">
+    <section id="hero" class="position-relative overflow-hidden py-4" style="background: url('../background.jpg') no-repeat; background-size: cover;">
         <div class="container py-5 mt-5">
             <div class="row align-items-center py-5 mt-5">
                 <div class=" col-md-5 offset-md-1">
@@ -40,7 +39,8 @@
                             <input type="passwrd" class="form-control border-0" id="exampleInputEmail2">
                         </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                            <button type="submit" class="btn btn-primary btn-lg mb-3">Register</button>
+                            <a href="login.php" class="btn btn-primary btn-lg">Login</a>
                         </div>
                     </form>
                 </div>
