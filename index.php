@@ -85,19 +85,15 @@ if (isset($_GET['action'])) {
             case 'article':
                 $controllerarticle->indexArticleAction();
                 break;
-            // case "pushiha":
-            //         $controllerarticle->articles();
-            //         exit();
-            //         break;
+                
          
     }
 }else{
     
     // $controllercategory->indexCategoryAction();
     // $controllertag->indexTagAction();
-    // $controllerarticle->indexArticleAction();
+    $controllerarticle->indexArticleAction();
     // $controlleruser->indexAction();
-    $controllerarticle->articles();
             
            
 }

@@ -25,7 +25,6 @@ class ArticleDAO
                 $ArticleData["article_id"],
                 $ArticleData["article_name"],
                 $ArticleData["creation_date"],
-                $ArticleData["image"],
                 $ArticleData["article_main"],
                 $ArticleData["archived"],
                 $ArticleData["fk_cat"],
@@ -45,11 +44,10 @@ class ArticleDAO
     }
     public function addArticle($article)
     {
-        $query = "INSERT INTO article (article_name, creation_date, image, article_main, archived, fk_cat, fk_email) VALUES (:article_name, :creation_date, :image, :article_main, :archived, :fk_cat, :fk_email)";
+        $query = "INSERT INTO article (article_name, creation_date, article_main, archived, fk_cat, fk_email) VALUES (:article_name, :creation_date, :image, :article_main, :archived, :fk_cat, :fk_email)";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':article_name', $article->getArticleName());
         $stmt->bindParam(':creation_date', $article->getCreationDateArticle());
-        $stmt->bindParam(':image', $article->getImage());
         $stmt->bindParam(':article_main', $article->getArticleMain());
         $stmt->bindParam(':archived', $article->getArchived());
         $stmt->bindParam(':fk_cat', $article->getFKCategory());
@@ -76,12 +74,11 @@ class ArticleDAO
 
     public function updateArticle(Article $article)
     {
-        $query = "UPDATE category SET article_name = :article_name, creation_date = :creation_date, image = :image, article_main = :article_main, archived = :archived, fk_cat = :fk_cat, fk_email = :fk_email WHERE article_id = :article_id";
+        $query = "UPDATE category SET article_name = :article_name, creation_date = :creation_date, article_main = :article_main, archived = :archived, fk_cat = :fk_cat, fk_email = :fk_email WHERE article_id = :article_id";
         $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':cat_name', $article->getArticleName());
+        $stmt->bindParam(':article_name', $article->getArticleName());
         $stmt->bindParam(':creation_date', $article->getCreationDateArticle());
-        $stmt->bindParam(':cat_id', $article->getImage());
-        $stmt->bindParam(':cat_name', $article->getArticleMain());
+        $stmt->bindParam(':article_main', $article->getArticleMain());
         $stmt->bindParam(':archived', $article->getArchived());
         $stmt->bindParam(':fk_cat', $article->getFKCategory());
         $stmt->bindParam(':fk_email', $article->getFKEmail());
@@ -106,7 +103,7 @@ class ArticleDAO
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result) {
-            return new Article($result['article_id'], $result['article_name'], $result['creation_date'],$result['image'],$result['article_main'], $result['archived'], $result['fk_cat'],$result['fk_email']);
+            return new Article($result['article_id'], $result['article_name'], $result['creation_date'],$result['article_main'], $result['archived'], $result['fk_cat'],$result['fk_email']);
         } else {
             return null;
         }

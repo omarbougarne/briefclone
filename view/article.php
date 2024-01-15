@@ -9,7 +9,6 @@ ob_start();
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     <h2 class="fw-bold display-4 mb-3"><?= $article->getArticleName() ?></h2>
-                    <img src="data:image/jpg;base64,<?= base64_encode($article->getImage()); ?>" class="img-fluid mb-4">
                     <p><?= $article->getArticleMain() ?></p>
                     <h3><?= $article->getTag_name() ?></h3>
                     <a href="home.html" class="btn btn-primary mt-3">Back to Articles</a>

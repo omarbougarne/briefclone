@@ -9,7 +9,6 @@ ob_start();
         <th>ID:</th>
         <th>Article Name:</th>
         <th>Creation Date:</th>
-        <th>Image:</th>
         <th>Article:</th>
         <th>Archive:</th>
         <th>Action</th>
@@ -21,7 +20,6 @@ ob_start();
         <td><?= $article->getArticleId() ?></td>
         <td><?= $article->getArticleName() ?></td>
         <td><?= $article->getCreationDateArticle() ?></td>
-        <td><img src="data:image/jpg;base64,<?= base64_encode($article->getImage()); ?>"></td>
         <td><?= $article->getArticleMain() ?></td>
         <td><?= $article->getArchived() ?></td>
     </tr>

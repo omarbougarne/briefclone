@@ -95,10 +95,10 @@ public static function LoginFilter(){
     header('location:index.php?action=article');
 
     }
-    // public static function AdminFilter($params) {
-    // if ($_SESSION['role'] !== '1') {
-    //     header('location:index.php');
-    // }
-    // }
+    public static function AdminFilter() {
+    if ($_SESSION['role'] !== '1') {
+        header('location:index.php');
+    }
+    }
 }
 ?>

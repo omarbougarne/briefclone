@@ -82,30 +82,5 @@ function functioSearch(){
     $this->articleDAO->getAjax($query);
     exit();
 }
-function articles(){
-                
-        $articleDAO = new ArticleDAO();
-        $tagsDAO = new TagDAO();
-        extract($_POST);
-        if(isset($_GET["article_id"])){
-        $id = $_GET['article_id'];
-        }
-
-        $tagIds = isset($_POST['tag_name']) ? $_POST['tag_name'] : (isset($_GET["article_name"]) ?  $tagsDAO->gettags_ALL_by_wikiID($id) : []);
-
-        if($id != 0){
-            $wikis = $articleDAO->getArticleById($id);
-
-            $articleDAO->updateArticle($title,$editor_content,$userid,$id,$tagIds,$selected_action);
-        }else{
-
-            $articleDAO->addArticle($title,$editor_content,$userid,$tagIds,$selected_action);
-            
-            
-            
-            header('Location: article.php');
-            
-        }
-        }
 }
 ?>
