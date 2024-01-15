@@ -1,7 +1,6 @@
 <?php
 ob_start();
 // include_once 'controller/controlleruser.php';
-
 ?>
 <a href="index.php?action=createarticle" class="btn btn-primary">Add</a>
 <?php foreach ($articles as $article): ?>
@@ -20,6 +19,7 @@ ob_start();
     </section>
     <?php endforeach; ?>
     <div id="#live-search-results">
+        
     </div>
     <div id="aside" class="col-md-4" style="position: absolute; top: 500px;">
         <div class="card">

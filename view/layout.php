@@ -35,7 +35,7 @@ $(document).ready(function() {
 
     });
 });
-$.get('index.php?action=liveSearch&query=0', function(data) {
+$.get('index.php?action=ajax&article_name=0', function(data) {
     $('#live-search-results').html(data);
 });
 </script>

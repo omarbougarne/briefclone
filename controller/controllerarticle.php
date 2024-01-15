@@ -30,7 +30,7 @@ function createArticleAction(){
 }
 
 function storeArticleAction(){
-    $newArticle = new Article(null,$_POST["article_id"],
+    $newArticle = new Article(0,
     $_POST["article_name"],
     $_POST["creation_date"],
     $_POST["image"],
@@ -78,8 +78,8 @@ function destroyCategoryAction(){
     exit();
 }
 function functioSearch(){
-    $name = $_GET['article_name']; 
-    $this->articleDAO->getAjax($name);
+    $query = $_GET['article_name']; 
+    $this->articleDAO->getAjax($query);
     exit();
 }
 

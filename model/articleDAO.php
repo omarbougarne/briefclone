@@ -118,19 +118,15 @@ class ArticleDAO
         $stmt->bindParam(':article_id', $article_id);
         $stmt->execute();
     }
-    function getAjax(){
-    $name = $_POST['name']; 
+    function getAjax($query){
+    $name = '%$query%';
 
-    $sql = "SELECT * FROM article WHERE name LIKE :article_name";
+    $sql = "SELECT * FROM article WHERE name LIKE :aname";
     $stmt = $this->db->prepare($sql);
-    $stmt->bindParam(':aname', $name . '%', PDO::PARAM_STR);
+    $stmt->bindParam(':aname', $name);
     $stmt->execute();
 
-    $data = '';
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $data .= "<tr><td>" . $row['article_name'] . "</td><td>" . $row['article_main'] . "</td></tr>";
-    }
-    echo $data;
+ 
     }
 
 }

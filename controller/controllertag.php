@@ -12,7 +12,7 @@ function indexTagAction(){
     $tagDAO = new TagDAO();
     $tags = $tagDAO->getTags();
     require_once 'view/taglist.php';
-    
+    require_once 'view/article.php';
 }
 
 function createTagAction(){
