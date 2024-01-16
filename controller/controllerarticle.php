@@ -77,10 +77,23 @@ function destroyCategoryAction(){
     header('location:index.php?action=list_article');
     exit();
 }
+
+function indexArticleLastAction(){
+    $article_id = $_GET['article_id'];
+    $this->articleDAO->getLatestArticle($article_id);
+ 
+     require_once 'view/home.php';
+ }
 function functioSearch(){
     $query = $_GET['article_name']; 
     $this->articleDAO->getAjax($query);
     exit();
 }
+function indexArticle(){
+    $article_id = $_GET['article_id'];
+     $article=$this->articleDAO->getArticleById($article_id);
+ 
+     require_once 'view/articlemain.php';
+ }
 }
 ?>

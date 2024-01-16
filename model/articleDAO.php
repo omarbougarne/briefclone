@@ -65,7 +65,7 @@ class ArticleDAO
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result) {
-            return new Article($result['article_id'], $result['article_name'], $result['creation_date'],$result['image'],$result['article_main'], $result['archived'], $result['fk_cat'],$result['fk_email']);
+            return new Article($result['article_id'], $result['article_name'], $result['creation_date'],$result['article_main'], $result['archived'], $result['fk_cat'],$result['fk_email']);
         } else {
             return null;
         }
@@ -96,7 +96,7 @@ class ArticleDAO
     }
     public function getLatestArticle($article_id)
     {
-        $query = "SELECT * FROM article WHERE article_id = :article_id ORDER BY DESC";
+        $query = "SELECT * FROM article  ORDER BY article_id = :article_id DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':article_id', $article_id);
         $stmt->execute();

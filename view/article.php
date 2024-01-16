@@ -3,6 +3,7 @@ ob_start();
 // include_once 'controller/controlleruser.php';
 ?>
 <a href="index.php?action=createarticle" class="btn btn-primary">Add</a>
+<a href="index.php?action=categorylist" class="btn btn-primary">Category</a>
 <?php foreach ($articles as $article): ?>
     <section id="article" class="my-5">
         <div class="container py-5">
@@ -11,7 +12,7 @@ ob_start();
                     <h2 class="fw-bold display-4 mb-3"><?= $article->getArticleName() ?></h2>
                     <p><?= $article->getArticleMain() ?></p>
                     <h3><?= $article->getTag_name() ?></h3>
-                    <a href="home.html" class="btn btn-primary mt-3">Back to Articles</a>
+                    <a href="index.php?action=back&article_id=<?=$article->getArticleId()?>" class="btn btn-primary mt-3">Back to Articles</a>
                 </div>
             </div>
         </div>
