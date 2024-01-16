@@ -28,10 +28,19 @@
 $(document).ready(function() {
     $('#datatable-search-input').on('input', function() {
         var query = $(this).val();
-
-        $.get('index.php?action=ajax&article_name=' + query, function(data) {
-            $('#live-search-results').html(data);
-        });
+        console.log(this.val());
+        // $.get('index.php?action=ajax&article_name=' + query, function(data) {
+        //     $('#live-search-results').html(data);
+        // });
+        $.ajax({
+       method:'GET',
+       url:'index.php?action=ajax',
+       data:{name:getName},
+       success:function(response)
+       {
+            $("#showdata").html(response);
+       } 
+     });
 
     });
 });

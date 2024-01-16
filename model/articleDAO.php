@@ -118,10 +118,13 @@ class ArticleDAO
     function getAjax($query){
     $name = '%$query%';
 
-    $sql = "SELECT * FROM article WHERE name LIKE :aname";
+    $sql = "SELECT * FROM article WHERE name LIKE :article_name";
     $stmt = $this->db->prepare($sql);
-    $stmt->bindParam(':aname', $name);
+    $stmt->bindParam(':article_name', $name);
+    $result = $stmt->fetchAll();
     $stmt->execute();
+    return $result;
+
 
  
     }

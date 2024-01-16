@@ -85,9 +85,9 @@ function indexArticleLastAction(){
      require_once 'view/home.php';
  }
 function functioSearch(){
-    $query = $_GET['article_name']; 
-    $this->articleDAO->getAjax($query);
-    exit();
+    $query = $_GET['name']; 
+    $result=$this->articleDAO->getAjax($query);
+     json_encode($result);
 }
 function indexArticle(){
     $article_id = $_GET['article_id'];

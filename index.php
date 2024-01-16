@@ -36,6 +36,9 @@ if (isset($_GET['action'])) {
             case 'categorylist':
                 $controllercategory->indexCategoryAction();
                  break;
+                 case 'taglist':
+                    $controllertag->indexTagAction();
+                     break;
         //tagcrud
         case 'createtag':
            $controllertag-> createTagAction();
@@ -99,8 +102,8 @@ if (isset($_GET['action'])) {
     
     // $controllercategory->indexCategoryAction();
     // $controllertag->indexTagAction();
-    // $controllerarticle->indexArticleAction();
-    $controlleruser->indexAction();
+    $controllerarticle->indexArticleAction();
+    // $controlleruser->indexAction();
     // $controllerarticle->indexArticleLastAction();
             
            

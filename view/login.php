@@ -23,5 +23,29 @@ ob_start();
     </div>
 </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("form").submit(function (event) {
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+            var email = $("#exampleInputEmail1").val();
+            var password = $("#exampleInputEmail2").val();
+
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address");
+                event.preventDefault();
+            }
+
+            if (!passwordRegex.test(password)) {
+                alert("Password must be at least 8 characters long and include at least one lowercase letter, one uppercase letter, and one digit");
+                event.preventDefault();
+            }
+        });
+    });
+</script>
+
+
 <?php $content = ob_get_clean(); ?>
 <?php include_once 'layout.php';?>

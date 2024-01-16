@@ -4,6 +4,7 @@ ob_start();
 ?>
 <a href="index.php?action=createarticle" class="btn btn-primary">Add</a>
 <a href="index.php?action=categorylist" class="btn btn-primary">Category</a>
+<a href="index.php?action=taglist" class="btn btn-primary">Tag</a>
 <?php foreach ($articles as $article): ?>
     <section id="article" class="my-5">
         <div class="container py-5">
@@ -26,8 +27,8 @@ ob_start();
             <div class="card-body">
                 <form class="mb-3" >
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search Articles">
-                        <button id="datatable-search-input" class="btn btn-primary" type="button">Search</button>
+                        <input id="datatable-search-input" type="text" class="form-control" placeholder="Search Articles">
+                        <button  class="btn btn-primary" type="button">Search</button>
                     </div>
                 </form>
                 <h5 class="card-title">Categories</h5>
