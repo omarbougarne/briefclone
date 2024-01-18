@@ -12,8 +12,7 @@ ob_start();
                 <div class="col-md-8 offset-md-2">
                     <h2 class="fw-bold display-4 mb-3"><?= $article->getArticleName() ?></h2>
                     <p><?= $article->getArticleMain() ?></p>
-                    <h3><?= $article->getTag_name() ?></h3>
-                    <a href="index.php?action=back&article_id=<?=$article->getArticleId()?>" class="btn btn-primary mt-3">Back to Articles</a>
+                    <a href="index.php?action=back&article_id=<?=$article->getArticleId()?>" class="btn btn-primary mt-3">Read</a>
                 </div>
             </div>
         </div>

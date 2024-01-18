@@ -11,10 +11,11 @@ class ArticleDAO
 
     public function getArticles()
     {
-        $query = "SELECT article.*,tag.tag_name 
-        FROM article
-        INNER JOIN article_tag ON article.article_id = article_tag.article_id
-        INNER JOIN tag ON article_tag.tag_name = tag.tag_name";
+        $query= "SELECT * FROM article";
+        // $query = "SELECT article.*,tag.tag_name 
+        // FROM article
+        // INNER JOIN article_tag ON article.article_id = article_tag.article_id
+        // INNER JOIN tag ON article_tag.tag_name = tag.tag_name";
         $stmt = $this->db->query($query);
         $stmt->execute();
         $ArticlesData = $stmt->fetchAll();
@@ -33,12 +34,6 @@ class ArticleDAO
             );
         
         }
-        $i = 0;
-        foreach ($articles as $article) {
-            $article->setTag_name($ArticlesData[$i]["tag_name"]);
-            $i++;
-        }
-
 
         return $articles;
     }

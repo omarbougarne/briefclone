@@ -27,7 +27,7 @@
 <script>
 $(document).ready(function() {
     $('#datatable-search-input').on('input', function() {
-        var query = $(this).val();
+        var getName = $(this).val();
         console.log(this.val());
         // $.get('index.php?action=ajax&article_name=' + query, function(data) {
         //     $('#live-search-results').html(data);

@@ -62,14 +62,4 @@ class Article
     {
         return $this->fk_email;
     }
-    public function getTag_name()
-    {
-        return $this->tag_name;
-    }
-    public function setTag_name($tag_name)
-    {
-        $this->tag_name = $tag_name;
-
-        return $this;
-    }
 }

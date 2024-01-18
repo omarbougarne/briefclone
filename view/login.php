@@ -28,7 +28,7 @@ ob_start();
     $(document).ready(function () {
         $("form").submit(function (event) {
             var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-            var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
             var email = $("#exampleInputEmail1").val();
             var password = $("#exampleInputEmail2").val();
